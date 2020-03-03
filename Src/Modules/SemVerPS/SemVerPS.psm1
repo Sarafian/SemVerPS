@@ -2,7 +2,7 @@
 # This the hash to generate the module's manifest with New-ModuleManifest
 @{
 	# Required fields
-	"RootModule"="SemanticVersionPS.psm1"
+	"RootModule"="SemVerPS.psm1"
 	"Description"="PowerShell module for Semantic Version"
 	"Guid"="58cf296d-cc21-43fa-9e81-e883f0f44f16"
 	"ModuleVersion"="1.0"
@@ -10,8 +10,8 @@
 	"Author"="Alex Sarafian"
 	# "CompanyName" = "Company name"
 	# "Copyright"="Some Copyright"
-	"LicenseUri"='https://github.com/Sarafian/SemanticVersionPS/blob/master/LICENSE'
-	"ProjectUri"= 'https://github.com/Sarafian/SemanticVersionPS/'
+	"LicenseUri"='https://github.com/Sarafian/SemVerPS/blob/master/LICENSE'
+	"ProjectUri"= 'https://github.com/Sarafian/SemVerPS/'
 	# Auto generated. Don't implement
 }
 #>

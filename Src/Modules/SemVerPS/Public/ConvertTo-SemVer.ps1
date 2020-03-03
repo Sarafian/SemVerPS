@@ -4,13 +4,13 @@
 .DESCRIPTION
    Converts a string version to semantic version
 .EXAMPLE
-   ConvertTo-SemanticVersion -Version "1.0.0"
+   ConvertTo-SemVer -Version "1.0.0"
 .EXAMPLE
-   ConvertTo-SemanticVersion -Version "1.0.0" -Strict
+   ConvertTo-SemVer -Version "1.0.0" -Strict
 .LINK
-   Test-SemanticVersion
+   Test-SemVer
 #>
-Function ConvertTo-SemanticVersion {
+Function ConvertTo-SemVer {
     [CmdletBinding(SupportsShouldProcess=$true)]
     [OutputType([Semver.SemVersion[]])]
     param(

@@ -1,0 +1,1 @@
+Import-Module "$PSScriptRoot\SemVerPS\SemVerPS.psm1" -Force

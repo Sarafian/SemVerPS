@@ -4,22 +4,22 @@
 .DESCRIPTION
    Limits a set of objects depending on if their semantic version value is stable or specific pre-release. The object can be a 
    - string
-   - semversion as created by ConvertTo-SemanticVersion
+   - semversion as created by ConvertTo-SemVer
    - any object with attached SemVersion property
 .EXAMPLE
-   "1.0.0"|Limit-SemanticVersion -Stable
+   "1.0.0"|Limit-SemVer -Stable
 .EXAMPLE
-   "1.0.0-alpha+1"|Limit-SemanticVersion -Prerelease alpha
+   "1.0.0-alpha+1"|Limit-SemVer -Prerelease alpha
 .EXAMPLE
-   [pscustomobject]@{Name="example-1.0.0"}|Add-SemanticVersionMember -ScriptBlock {$_.Name.Replace("example-","")} -PassThru|Limit-SemanticVersion -Stable
+   [pscustomobject]@{Name="example-1.0.0"}|Add-SemVerMember -ScriptBlock {$_.Name.Replace("example-","")} -PassThru|Limit-SemVer -Stable
 .EXAMPLE
-   [pscustomobject]@{Name="example-1.0.0-alpha+1"}|Add-SemanticVersionMember -ScriptBlock {$_.Name.Replace("example-","")} -PassThru|Limit-SemanticVersion -Prerelease alpha
+   [pscustomobject]@{Name="example-1.0.0-alpha+1"}|Add-SemVerMember -ScriptBlock {$_.Name.Replace("example-","")} -PassThru|Limit-SemVer -Prerelease alpha
 .LINK
-   Add-SemanticVersionMember
+   Add-SemVerMember
 .LINK
-   Test-SemanticVersion
+   Test-SemVer
 #>
-Function Limit-SemanticVersion {
+Function Limit-SemVer {
     [CmdletBinding(SupportsShouldProcess=$true)]
 #    [OutputType([Semver.SemVersion[]])]
     param(
@@ -28,7 +28,7 @@ Function Limit-SemanticVersion {
         [object]$InputObject,
         [Parameter(Mandatory=$false,ParameterSetName="Object")]
         [Parameter(Mandatory=$false,ParameterSetName="Object - Stable")]
-        [string]$Property="SemVersion",
+        [string]$Property="SemVer",
         [Parameter(Mandatory=$true,ParameterSetName="Object - Stable")]
         [switch]$Stable,
         [Parameter(Mandatory=$true,ParameterSetName="Object")]
@@ -45,7 +45,7 @@ Function Limit-SemanticVersion {
 
     process {
         $InputObject|Where-Object {
-            $_|Test-SemanticVersion @newParameters
+            $_|Test-SemVer @newParameters
         }
     }
 
