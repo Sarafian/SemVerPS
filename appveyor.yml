@@ -1,0 +1,16 @@
+version: 1.0.{build}
+image: Ubuntu1804
+init:
+- pwsh: Get-ChildItem ENV:\
+install:
+- pwsh: # Install-Module -Name Pester -Scope CurrentUser -Force  
+build: off
+test_script:
+- pwsh: '& .\CI\Invoke-Test.ps1 -AppVeyor'
+deploy_script:
+- pwsh: >-
+    & .\CI\Publish-Module.ps1
+    & .\CI\Publish-Script.ps1
+notifications:
+  - provider: GitHubPullRequest
+    template: "{{#passed}}:white_check_mark:{{/passed}}{{#failed}}:x:{{/failed}} [Build {{&projectName}} {{buildVersion}} {{status}}]({{buildUrl}}) (commit {{commitUrl}} by @{{&commitAuthorUsername}})"
