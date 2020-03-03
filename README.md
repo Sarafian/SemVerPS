@@ -1,11 +1,11 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/kr40j8jj3q5ue12h/branch/master?svg=true)](https://ci.appveyor.com/project/Alex61243/semverps/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/3y00c9g65v43eok1/branch/master?svg=true)](https://ci.appveyor.com/project/Alex61243/semverps/branch/master)
 
 # SemVerPS
 PowerShell module to work with Semantic Versioning
 
 # Usage
 
-The modules offers the ability to work with [Semantic Version] utilizing the .net implementation from @maxhauser/semver. 
+The modules offers the ability to work with [Semantic Version] utilizing the .net implementation from [Max Hauser's SemVer] repository. 
 
 Use the `ConvertTo-SemVer` to convert strings to semantic version objects. For example:
 
@@ -100,4 +100,12 @@ Name                  SemVer
 example-1.0.0-alpha+1 1.0.0-alpha+1
 ```
 
+## Cmdlets
+
+- `Add-SemVerMember`
+- `Convert-SemVer`
+- `Test-SemVer`
+- `Limit-SemVer`
+
 [Semantic Version]: http://semver.org/
+[Max Hauser's SemVer]: maxhauser/semver
