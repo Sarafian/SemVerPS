@@ -4,22 +4,22 @@
 .DESCRIPTION
    Test if an object's semantic version value is stable or specific pre-release. The object can be a 
    - string
-   - semversion as created by ConvertTo-SemanticVersion
+   - semversion as created by ConvertTo-SemVer
    - any object with attached SemVersion property
 .EXAMPLE
-   Test-SemanticVersion -InputObject "1.0.0"
+   Test-SemVer -InputObject "1.0.0"
 .EXAMPLE
-   Test-SemanticVersion -InputObject "1.0.0" -Stable
+   Test-SemVer -InputObject "1.0.0" -Stable
 .EXAMPLE
-   Test-SemanticVersion -InputObject "1.0.0-alpha+1" -PreRelease alpha
+   Test-SemVer -InputObject "1.0.0-alpha+1" -PreRelease alpha
 .EXAMPLE
-   [pscustomobject]@{Name="example-1.0.0"}|Add-SemanticVersionMember -Expression 'Name.Replace("example-","")' -PassThru|Test-SemanticVersion -Stable
+   [pscustomobject]@{Name="example-1.0.0"}|Add-SemVerMember -Expression 'Name.Replace("example-","")' -PassThru|Test-SemVer -Stable
 .LINK
-   Add-SemanticVersionMember
+   Add-SemVerMember
 .LINK
-   ConvertTo-SemanticVersion
+   ConvertTo-SemVer
 #>
-Function Test-SemanticVersion {
+Function Test-SemVer {
     [CmdletBinding(SupportsShouldProcess=$true)]
     [OutputType([boolean])]
     param(
@@ -30,7 +30,7 @@ Function Test-SemanticVersion {
         [Parameter(Mandatory=$false,ParameterSetName="Object - Validate")]
         [Parameter(Mandatory=$false,ParameterSetName="Object - Stable")]
         [Parameter(Mandatory=$false,ParameterSetName="Object - PreRelease")]
-        [string]$Property="SemVersion",
+        [string]$Property="SemVer",
         [Parameter(Mandatory=$true,ParameterSetName="Object - Stable")]
         [switch]$Stable,
         [Parameter(Mandatory=$true,ParameterSetName="Object - PreRelease")]
@@ -67,7 +67,7 @@ Function Test-SemanticVersion {
                 }
                 elseif($InputObject -is [string])
                 {
-                    ($InputObject|ConvertTo-SemanticVersion).PreRelease -eq ""
+                    ($InputObject|ConvertTo-SemVer).PreRelease -eq ""
                 }
                 else
                 {
@@ -81,7 +81,7 @@ Function Test-SemanticVersion {
                 }
                 elseif($InputObject -is [string])
                 {
-                    ($InputObject|ConvertTo-SemanticVersion).PreRelease -eq $PreRelease
+                    ($InputObject|ConvertTo-SemVer).PreRelease -eq $PreRelease
                 }
                 else
                 {

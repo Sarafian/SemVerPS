@@ -4,15 +4,15 @@
 .DESCRIPTION
    Adds a semantic version property to an existing object using a an expression that is expected to execute on each item or a script block
 .EXAMPLE
-   [pscustomobject]@{Name="example-1.0.0"}|Add-SemanticVersionMember -Expression 'Name.Replace("example-","")' -PassThru
+   [pscustomobject]@{Name="example-1.0.0"}|Add-SemVerMember -Expression 'Name.Replace("example-","")' -PassThru
 .EXAMPLE
-   [pscustomobject]@{Name="example-1.0.0"}|Add-SemanticVersionMember -ScriptBlock {$_.Name.Replace("example-","")} -PassThru -Name="SemVersion"
+   [pscustomobject]@{Name="example-1.0.0"}|Add-SemVerMember -ScriptBlock {$_.Name.Replace("example-","")} -PassThru -Name "SemVer"
 .LINK
-   Test-SemanticVersion
+   Test-SemVer
 .LINK
-   ConvertTo-SemanticVersion
+   ConvertTo-SemVer
 #>
-Function Add-SemanticVersionMember {
+Function Add-SemVerMember {
     [CmdletBinding(SupportsShouldProcess=$true)]
     [OutputType([psobject[]])]
     param(
@@ -21,7 +21,7 @@ Function Add-SemanticVersionMember {
         [object[]]$InputObject,
         [Parameter(Mandatory=$false,ParameterSetName="Object - Expression")]
         [Parameter(Mandatory=$false,ParameterSetName="Object - ScriptBlock")]
-        [string]$Name="SemVersion",
+        [string]$Name="SemVer",
 # ScriptProperty not working yet
 #        [Parameter(Mandatory=$false,ParameterSetName="Object - ScriptBlock")]
 #        [ValidateSet("NoteProperty","ScriptProperty")]
@@ -55,7 +55,7 @@ Function Add-SemanticVersionMember {
                     Write-Debug "command=$command"
                     $version=Invoke-Expression -Command $command
                     Write-Debug "version=$version"
-                    $semVersion=ConvertTo-SemanticVersion -Version $version -Strict:$Strict
+                    $semVersion=ConvertTo-SemVer -Version $version -Strict:$Strict
                     Write-Debug "semVersion=$semVersion"
                     $item|Add-Member -MemberType NoteProperty -Name $Name -Value $semVersion
                 }
@@ -64,7 +64,7 @@ Function Add-SemanticVersionMember {
 #                    {
                         $version=$item|Select-Object @{Name=$Name;Expression=$ScriptBlock} | Select-Object -ExpandProperty $Name
                         Write-Debug "version=$version"
-                        $semVersion=ConvertTo-SemanticVersion -Version $version -Strict:$Strict
+                        $semVersion=ConvertTo-SemVer -Version $version -Strict:$Strict
                         Write-Debug "semVersion=$semVersion"
                         $item|Add-Member -MemberType NoteProperty -Name $Name -Value $semVersion
 <#
@@ -74,7 +74,7 @@ Function Add-SemanticVersionMember {
                         $scriptBlockString=@"
     `$version={$($ScriptBlock.ToString())}
     Write-Host "version=`$version"
-    `$semVersion=ConvertTo-SemanticVersion -Version `$version -Strict:$Strict
+    `$semVersion=ConvertTo-SemVer -Version `$version -Strict:$Strict
     Write-Host "semVersion=`$semVersion"
     `$semVersion
 "@

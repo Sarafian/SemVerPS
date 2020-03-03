@@ -7,10 +7,17 @@ install:
 build: off
 test_script:
 - pwsh: '& .\CI\Invoke-Test.ps1 -AppVeyor'
-deploy_script:
-- pwsh: >-
-    & .\CI\Publish-Module.ps1
-    & .\CI\Publish-Script.ps1
+for:
+-
+  branches:
+    only:
+      - master 
+    environment:
+        NuGetAPIKey:
+            secure: <encrypt_value>
+  deploy_script:
+  - pwsh: >-
+      & .\CI\Publish-Module.ps1 -NuGetAPIKey $env:NuGetAPIKey
 notifications:
   - provider: GitHubPullRequest
     template: "{{#passed}}:white_check_mark:{{/passed}}{{#failed}}:x:{{/failed}} [Build {{&projectName}} {{buildVersion}} {{status}}]({{buildUrl}}) (commit {{commitUrl}} by @{{&commitAuthorUsername}})"
