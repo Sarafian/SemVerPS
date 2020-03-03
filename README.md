@@ -1,7 +1,9 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/3y00c9g65v43eok1/branch/master?svg=true)](https://ci.appveyor.com/project/Alex61243/semverps/branch/master)
+[![SemVerPS@PowerShell Gallery](https://img.shields.io/powershellgallery/dt/SemVerPS?label=SemVerPS%40PowerShell%20Gallery)](https://www.powershellgallery.com/packages/SemVerPS/)
 
 # SemVerPS
-PowerShell module to work with Semantic Versioning
+
+[SemVerPS] is a PowerShell module to work with Semantic Versioning
 
 # Usage
 
@@ -109,3 +111,4 @@ example-1.0.0-alpha+1 1.0.0-alpha+1
 
 [Semantic Version]: http://semver.org/
 [Max Hauser's SemVer]: maxhauser/semver
+[SemVerPS]: https://www.powershellgallery.com/packages/SemVerPS/
