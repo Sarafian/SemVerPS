@@ -15,7 +15,7 @@ for:
       - master 
     environment:
         NuGetAPIKey:
-            secure: <encrypt_value>
+            secure: aU9vw9DIzXNRjmiS8ZtYvFZij4RUvdpeqoR1XaaemfKUjdc3y2Qw+qzCNSHsLXxY
   deploy_script:
   - pwsh: >-
       & .\CI\Publish-Module.ps1 -NuGetAPIKey $env:NuGetAPIKey
