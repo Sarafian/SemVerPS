@@ -18,7 +18,7 @@ $expectedBeta=@(
     "1.0.1-beta+1"
 )
 
-Describe "Tests on String Versions" {
+Describe -Tag @("SemVer","Module","String") "String Versions" {
     It "ConvertTo-SemVer" {
         $SemVers=$versions|ConvertTo-SemVer
         $SemVers.Count | Should BeExactly $versions.Count
@@ -44,7 +44,7 @@ Describe "Tests on String Versions" {
     }
 }
 
-Describe "Tests on Object instances" {
+Describe -Tag @("SemVer","Module","Object") "Enhanced Objects" {
     $items=$versions|ForEach-Object {
         [pscustomobject]@{
             Name="item-"+$_
