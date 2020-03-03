@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/kr40j8jj3q5ue12h/branch/master?svg=true)](https://ci.appveyor.com/project/Alex61243/semanticversionps/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/kr40j8jj3q5ue12h/branch/master?svg=true)](https://ci.appveyor.com/project/Alex61243/semverps/branch/master)
 
 # SemVerPS
 PowerShell module to work with Semantic Versioning
