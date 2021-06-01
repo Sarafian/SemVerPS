@@ -28,7 +28,6 @@ using System;
 #if !NETSTANDARD
 using System.Globalization;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 #endif
 using System.Text.RegularExpressions;
 
@@ -476,7 +475,6 @@ namespace Semver
         }
 
 #if !NETSTANDARD
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             if (info == null) throw new ArgumentNullException("info");
