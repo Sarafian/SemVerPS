@@ -21,7 +21,7 @@
 if (-not ("Semver.SemVersion" -as [type]))
 {
     Write-verbose "Adding Semver.SemVersion type"
-    Add-Type -Path "$PSScriptRoot\CS\SemVersion.cs"
+    Add-Type -Path "$PSScriptRoot\CS\SemVersion.cs" -CompilerOptions "DefineConstants=NETSTANDARD"
 }
 
 $public  = @( Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -Exclude @("*.Tests.ps1"))
