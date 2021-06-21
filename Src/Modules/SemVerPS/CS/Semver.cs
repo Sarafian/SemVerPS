@@ -1,3 +1,5 @@
+#define NETSTANDARD
+
 /*
  * https://github.com/maxhauser/semver/blob/v2.0.6/Semver/IntExtensions.cs
  * https://github.com/maxhauser/semver/blob/v2.0.6/Semver/SemVersion.cs
@@ -24,7 +26,7 @@
  * THE SOFTWARE.
  * 
  */
-
+ 
 using System;
 using System.Globalization;
 using System.Text;
