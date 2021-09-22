@@ -3,7 +3,15 @@
 
 # SemVerPS
 
-[SemVerPS] is a PowerShell module to work with Semantic Versioning
+[SemVerPS] is a PowerShell module to work with Semantic Versioning.
+
+# Core edition only
+
+For reasons discussed in #8, the module works only with the `Core` edition. For the desktop edition make sure you install the version `1.0`.
+
+```powershell
+Find-Module -Name SemVerPS -MaximumVersion 1.0|Install-Module
+```
 
 # Usage
 

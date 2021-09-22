@@ -12,6 +12,10 @@
 	# "Copyright"="Some Copyright"
 	"LicenseUri"='https://github.com/Sarafian/SemVerPS/blob/master/LICENSE'
 	"ProjectUri"= 'https://github.com/Sarafian/SemVerPS/'
+
+	#Core edition support
+	"CompatiblePSEditions" = @("Core")
+
 	# Auto generated. Don't implement
 }
 #>
