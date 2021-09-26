@@ -1,4 +1,4 @@
-# 1.2
+# 2.0
 
 - Adapted manifest to support the `Core` edition only
 # 1.1
