@@ -5,13 +5,17 @@
 	"RootModule"="SemVerPS.psm1"
 	"Description"="PowerShell module for Semantic Version"
 	"Guid"="58cf296d-cc21-43fa-9e81-e883f0f44f16"
-	"ModuleVersion"="1.0"
+	"ModuleVersion"="2.0"
 	# Optional fields
 	"Author"="Alex Sarafian"
 	# "CompanyName" = "Company name"
 	# "Copyright"="Some Copyright"
 	"LicenseUri"='https://github.com/Sarafian/SemVerPS/blob/master/LICENSE'
 	"ProjectUri"= 'https://github.com/Sarafian/SemVerPS/'
+	"PowerShellVersion"="7.0"
+	#Core edition support
+	#"CompatiblePSEditions" = @("Core")
+
 	# Auto generated. Don't implement
 }
 #>
