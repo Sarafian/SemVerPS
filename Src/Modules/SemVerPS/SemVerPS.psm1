@@ -12,9 +12,9 @@
 	# "Copyright"="Some Copyright"
 	"LicenseUri"='https://github.com/Sarafian/SemVerPS/blob/master/LICENSE'
 	"ProjectUri"= 'https://github.com/Sarafian/SemVerPS/'
-
+	"PowerShellVersion"="7.0"
 	#Core edition support
-	"CompatiblePSEditions" = @("Core")
+	#"CompatiblePSEditions" = @("Core")
 
 	# Auto generated. Don't implement
 }

@@ -1,6 +1,6 @@
 # 2.0
 
-- Adapted manifest to support the `Core` edition only
+- Adapted manifest for minimum version `7.0`
 # 1.1
 
 - Update source file for SemVer nuget

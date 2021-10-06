@@ -5,9 +5,9 @@
 
 [SemVerPS] is a PowerShell module to work with [Semantic Version] utilizing the .net implementation from [Max Hauser's SemVer] repository.
 
-# Core edition only
+# Core editions only
 
-For reasons discussed in #8, the module works only with the `Core` edition. For the desktop edition make sure you install version `1.0`.
+For reasons discussed in #8, the module works only with the `Core` edition with a minimum version `7.0`. For the desktop edition make sure you install version `1.0`.
 
 ```powershell
 Find-Module -Name SemVerPS -MaximumVersion 1.0|Install-Module
