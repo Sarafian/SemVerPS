@@ -115,6 +115,12 @@ example-1.0.0-alpha+1 1.0.0-alpha+1
 - `Test-SemVer`
 - `Limit-SemVer`
 
+> [!IMPORTANT]  
+> If you consistently use this module, please contact me. I'm just curious.
+> Links on my [Github profile].
+> Thank you.
+
+[Github profile]: https://github.com/Sarafian
 [Semantic Version]: http://semver.org/
 [Max Hauser's SemVer]: maxhauser/semver
 [SemVerPS]: https://www.powershellgallery.com/packages/SemVerPS/
